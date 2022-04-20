@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container5{
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: block;
+    background-image: url("images/background/rect5.png") ;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 80%;
+}
+.top{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+}
+.top button{
+    height: 150px;
+    width: 250px;
+    margin-left: 70%;
+    margin-top: 15%;
+    border-radius: 20px;
+    border-width: 0px;
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: block;
+    font-size: 30px;
+    transition: transform ease 1s;
+    font-weight: bold;
+}
+.top button:hover{
+    cursor: pointer;
+    background: linear-gradient(to right,#E9F5FD,#fff);
+    transform:  translate(0, -20px) scale(1.25) ;
+}
+.bottom{
+    display: flex;
+    width: 100%;
+    height:50vh;
+}
+.first{
+    display: block;
+
+}
+.logo-bottom{
+    cursor: pointer;
+    margin-left: 60px;
+    margin-top: 20%;
+    width: 200px;
+}
+.links{
+    margin-left: 20%;
+    display: flex;
+}
+.links img{
+    width: 60px;
+    height: 60px;
+}
+.copyright{
+    font-size: 15px;
+    font-weight: 520;
+    margin-left: 20%;
+    margin-top: 20%;
+}
+.second{
+    padding-top: 6%;
+    padding-left: 6%;
+    display: block;
+}
+.second p{
+    cursor: pointer;
+     margin-top: 20px;
+}
+.second p:hover{
+   font-weight: bold;
+}
+.arrow-top{
+   margin-top: 10%;
+   margin-left: 17%;
+    width: 70px;
+    height: 70px;
+    transition: transform ease 1s;
+}
+.arrow-top:hover{
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1.15) ;
+}
+

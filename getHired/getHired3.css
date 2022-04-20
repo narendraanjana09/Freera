@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.form3{
+    display: flex;
+    width: 0%;
+    height: 550px;
+    transition: width 1s;
+}
+.form3 lottie-player{
+    width: 40%; 
+    margin-top: -2%;
+}
+.form3 .data{
+    width: 60%;
+    height: 550px;
+    overflow: hidden;
+    display: block;
+    margin-top: 5%;
+    border-radius: 30px;
+    padding-left: 10%;
+}
+.form3 .data .icon{
+    margin-left: 20px;
+}
+.input-field h6{
+    margin-left: 20%;
+    padding-top: 15px;
+   
+}
+#pdf {
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0 0 0;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-size: 60px 60px;
+  }
+.links{
+    margin-top: 10%;
+    width: 70%;
+    border-radius: 10px;
+
+    border-bottom: 2px solid #F5A623;
+}
+.links span{
+    background: none;
+    border: none;
+    color: #F5A623;
+    
+
+}
+.links button{
+    background: none;
+    border: none;
+   
+}
+.links button:hover{
+    color: black;   
+    background:linear-gradient(to left,#F5A623,#ffff);
+}
+.links input{
+    font-size: 15px;
+    background: none;
+    border: none;
+   
+}
+.links input:focus{
+    background: none;
+
+}

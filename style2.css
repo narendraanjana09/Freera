@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container2{
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: block;
+    background-image: url("images/background/rect2.png") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.title{
+    height: fit-content;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin: 2%;
+}
+.items{
+    width: 100%;
+    display: flex;
+
+}
+.col1{
+    padding-top: 20px;
+    width: 50%;
+    display: block;
+    text-align: right;
+}
+.col1 p{
+    margin-top: 10px;
+   
+}
+
+.line-find{
+    margin-top: 30px;
+    margin-right: 30%;
+}
+
+.buttons-find{
+    margin-right: 20%;
+    width: max-content;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    height: 45px;
+    margin: 0 70%;
+    background: rgb(255, 255, 255,0.5);
+    color: #000;
+    border-radius:10px;
+    border-width: 1px;
+    outline: none;
+    transition: width 0.6s;
+
+}
+
+.buttons-find img{
+    margin-left: 10px;
+    width: 20px;
+    display: none;
+}
+.buttons-find:hover img{
+    display: block;
+}
+.buttons-find:hover{
+    border: none;
+    height: 45px;
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 10px;
+    align-items: center;   
+}
+.gif-find{
+    margin-top: -80px;
+}
+.col2{
+    width: 50%;
+}
+.line-hire{
+    margin-top: -40px;
+    margin-left: 20%;
+}
+.buttons-hire{
+    margin-left: 10%;
+    margin-top: 2%;
+    width: fit-content;
+    padding: 10px;
+    cursor: pointer;
+    background: rgb(255, 255, 255,0.5);
+    color: #000;
+    border-radius:10px;
+    border-width: 1px;
+    outline: none;
+    transition: width 0.7s;
+}
+.buttons-hire img{
+    margin-left: 10px;
+    width: 20px;
+    display: none;
+}
+.buttons-hire:hover img{
+    display: block;
+}
+.buttons-hire:hover{
+    border: none;
+    padding: 10px;
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    align-items: center;   
+}

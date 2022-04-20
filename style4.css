@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container4{
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: block;
+    background-image: url("images/background/rect4.png") ;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 70%;
+}
+.title h1{
+    margin-top: 5px;
+    font-size: 40px;
+}
+.data{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.rank{
+    display: block;
+    width: 40%;
+    height: 100%;
+    margin-left: 5%;
+
+   
+}
+.card1{
+    margin-right: 20%;
+    display: block;
+    padding-left: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    transition: transform ease 1s;
+}
+.card1 p{
+    width: 70%;
+    margin-top: 10px;
+    font-size: 17px;
+}
+.card1:hover{
+    cursor: pointer;
+    border-radius: 20px;
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: block;
+    transform: scale(1.05);
+
+}
+.info1{
+    display: flex;
+    align-items: center;
+}
+.info1 img{
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+.info1 h4{
+    margin-left: 4%;
+}
+.card2{
+    margin-top: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    padding-top: 1%;
+    padding-right: 4%;
+    padding-bottom: 1%;
+    transition: transform ease 1s;
+}
+.card2 h4{
+    margin-left: 20px;
+}
+.card2 img{
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 50%;
+}
+.name-card{
+    margin-left: 10px;
+}
+.name-card p{
+    font-size: 15px;
+}
+.card2:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.btn{
+    width: 15%;
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+}
+.data lottie-player{
+    margin-left: 5%;
+}
+.data button{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: fit-content;
+    height: 45px;
+    padding: 10px;
+    cursor: pointer;
+    background: rgb(255, 255, 255,0.5);
+    color: #000;
+    border-radius:10px;
+    border-width: 1px;
+    outline: none;
+    transition: width 0.7s;
+}
+.data button img{
+    margin-left: 10px;
+    width: 20px;
+    display: none;
+}
+.data button:hover img{
+    display: block;
+    
+}
+.data button:hover{
+    border: none;
+    height: 45px;
+    padding: 10px;
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    align-items: center;   
+}
