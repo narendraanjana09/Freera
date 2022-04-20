@@ -19,7 +19,7 @@
 <body>
     <div class="container1" >
         <div class="navbar" data-aos="slide-down" >
-            <img src="../images/logo.png" class="logo">
+            <img src="images/logo.png" class="logo">
             <nav>
                 <ul>
                     <li><a href="">Home</a></li>
@@ -28,14 +28,15 @@
                 </ul>
             </nav>
             
-            <div class="login g-signin2" data-onsuccess="onSignIn">
-             Login
+        
+            <div class="login" id="google-button">
+                Login
             </div>
-            <div class="signup">
+            <div class="signup" id="google-button">
                 Sign Up
-               </div>
+            </div>
             
-                <img  class="profile" src="../images/profile.jpg" alt="Avatar">
+                <img  class="profile" src="images/profile.jpg" alt="Avatar">
             
 
         </div>
@@ -235,7 +236,32 @@
     </div>
 
     <!-- for google sign-in -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+    var googleUser = {};
+    var startApp = function() {
+      gapi.load('auth2', function(){
+        // Retrieve the singleton for the GoogleAuth library and set up the client.
+        auth2 = gapi.auth2.init({
+          client_id: '1022282300672-2hefrbmuh0uvlher5cljp362mju3hfj9.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+          // Request scopes in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+          onSignIn();
+        attachSignin(document.getElementById('google-button'));
+      });
+    };
+    function attachSignin(element) {
+      auth2.attachClickHandler(element, {},
+          function(googleUser) {
+           console.log( "Signed in: " +
+                googleUser.getBasicProfile().getName());
+          }, function(error) {
+            alert(JSON.stringify(error, undefined, 2));
+          });
+    }
+    </script>
 
     <!-- first script -->
     <script type="text/javascript" src="home.js"></script>
@@ -244,6 +270,7 @@
     <!-- for animations -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        startApp();
       AOS.init({
         offset:150,
           duration:1000,
