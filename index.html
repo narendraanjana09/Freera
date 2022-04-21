@@ -9,6 +9,11 @@
     <link rel = "icon" href = 
     "https://cdn-icons-png.flaticon.com/512/5240/5240673.png" 
             type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+            <!-- for fontsawesome -->
+    <link rel="stylesheet" href="all.css" type="text/css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="style3.css">
@@ -28,15 +33,26 @@
                 </ul>
             </nav>
             
-        
-            <div class="login" id="google-button">
+        <div class="login-view">
+            <div class="login" id="signin-button">
                 Login
             </div>
-            <div class="signup" id="google-button">
-                Sign Up
-            </div>
-            
+            <div class="person-detail">
+                <div class="image">
                 <img  class="profile" src="images/profile.jpg" alt="Avatar">
+                </div>
+                <div class="name-email">
+                    <div class="name">Narend</div>
+                    <div class="email">9@gmail.com</div>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+        </div>
+           
+           
+            
             
 
         </div>
@@ -235,42 +251,58 @@
 
     </div>
 
+    <script type="text/javascript" src="home.js"></script>
     <!-- for google sign-in -->
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script>
-    var googleUser = {};
-    var startApp = function() {
-      gapi.load('auth2', function(){
-        // Retrieve the singleton for the GoogleAuth library and set up the client.
-        auth2 = gapi.auth2.init({
-          client_id: '1022282300672-2hefrbmuh0uvlher5cljp362mju3hfj9.apps.googleusercontent.com',
-          cookiepolicy: 'single_host_origin',
-          // Request scopes in addition to 'profile' and 'email'
-          //scope: 'additional_scope'
-        });
-          onSignIn();
-        attachSignin(document.getElementById('google-button'));
+        var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '1022282300672-2hefrbmuh0uvlher5cljp362mju3hfj9.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
       });
-    };
-    function attachSignin(element) {
-      auth2.attachClickHandler(element, {},
-          function(googleUser) {
-           console.log( "Signed in: " +
-                googleUser.getBasicProfile().getName());
-          }, function(error) {
-            alert(JSON.stringify(error, undefined, 2));
-          });
+      if (auth2.isSignedIn.get()) {
+        googleUserProfile = auth2.currentUser.get().getBasicProfile()
+        login_btn.style.display = "none";
+        user_detail.style.display = "flex";
+        onSignIn(googleUserProfile);
+    }else{
+        login_btn.style.display = "grid";
+        user_detail.style.display = "none";
+        console.log("not signed in");
     }
+      attachSignin(document.getElementById('signin-button'));
+    });
+  };
+
+  function attachSignin(element) {
+    
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+            onSignIn(googleUser.getBasicProfile());
+          console.log("Signed in: " +
+              googleUser.getBasicProfile().getName());
+              login_btn.style.display = "none";
+              user_detail.style.display = "flex";
+        }, function(error) {
+            login_btn.style.display = "grid";
+            user_detail.style.display = "none";
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
     </script>
 
     <!-- first script -->
-    <script type="text/javascript" src="home.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <!-- for animations -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        startApp();
+    startApp();
       AOS.init({
         offset:150,
           duration:1000,
