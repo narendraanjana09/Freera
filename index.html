@@ -37,7 +37,7 @@
             <div class="login" id="signin-button">
                 Login
             </div>
-            <button onclick="startApp()"><i class="fa-solid fa-play"></i></button>
+            <button class="start-btn" onclick="startApp()"><i class="fa-solid fa-play"></i></button>
             <div class="person-detail">
                 <div class="image">
                 <img  class="profile" src="images/profile.jpg" alt="Avatar">
@@ -295,6 +295,10 @@
           alert(JSON.stringify(error, undefined, 2));
         });
   }
+  window.onload = (event) => {
+  console.log('page is fully loaded');
+  document.querySelector('.start-btn').click();
+};
     </script>
 
     <!-- first script -->
