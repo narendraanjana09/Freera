@@ -98,9 +98,6 @@ nav ul li a:hover{
    margin-right: 4%;
    display: flex; 
 }
-.start-btn{
-    display: none;
-}
 .row{
     display: flex;
     justify-content: space-between;
