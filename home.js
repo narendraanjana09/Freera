@@ -1,4 +1,5 @@
-var version="0.0.3";
+var version="0.0.7";
+console.log(version)
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
 
@@ -28,16 +29,13 @@ function viewLeaderBoard(){
     location.href ='./leaderboard/leader.html';
 }
 function onSignIn(profile) {
-
-        console.log('ID: ' + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-        name_tv.innerHTML =profile.getName();
-        email_tv.innerHTML=profile.getEmail();
-        profile_img.src = profile.getImageUrl();
+        console.log('ID: ' + profile.uid);
+        console.log('Full Name: ' + profile.displayName);
+        console.log('Image URL: ' + profile.photoURL);
+        console.log('Email: ' + profile.email);
+        name_tv.innerHTML =profile.displayName;
+        email_tv.innerHTML=profile.email;
+        profile_img.src = profile.photoURL;
     
 }
 function signOut() {
@@ -46,3 +44,4 @@ function signOut() {
       console.log('User signed out.');
     });
 }
+
