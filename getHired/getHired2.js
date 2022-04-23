@@ -1,4 +1,4 @@
-const field_select=document.querySelector('#form-select');
+const field_select=document.querySelector('#field_select');
 const bio_ed=document.querySelector('#bio_ed');
 const tagContainer = document.querySelector('.skills');
 const input = document.querySelector('.skills input');
@@ -53,3 +53,20 @@ document.addEventListener('click', (e) => {
 })
 
 input.focus();
+
+
+// var userData = {
+//     uid:"",
+//     name: "",
+//     email: "",
+//     address: "",
+//     number: "",
+//     profileUrl: "",
+//     field: "",
+//     bio: "",
+//     skills:[],
+//     resumeUrl:"",
+//     links:[]
+//   };
+
+ 

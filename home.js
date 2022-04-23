@@ -12,10 +12,7 @@ var email_tv = document.querySelector('.email');
 
 
 function goToAppoint() {
-    firebase
-  .database()
-  .ref("museum")
-  .child("room").set('two');
+ 
 div2.scrollIntoView({behavior: "smooth"});
 
 }

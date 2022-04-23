@@ -35,6 +35,9 @@
     padding-top: 15px;
    
 }
+.file-name{
+    font-size: 10px;
+}
 #pdf {
     display: inline-block;
     width: 100%;

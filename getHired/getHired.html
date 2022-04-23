@@ -22,6 +22,11 @@
 </head>
 
 <body>
+    <div class="progress">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    </div>
     <div class="Conatiner1">
         <img src="images/logo.png" class="logo">
     </div>
@@ -59,7 +64,7 @@
         </div>
         <div class="form2">
             <div class="data">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select"  id="field_select" aria-label="Default select example">
                 <option selected>Select Your Field</option>
                 <option value="1">Mobile Development</option>
                 <option value="2">Web Development</option>
@@ -69,7 +74,7 @@
                 <i class="uil uil-dna icon"></i>
           </div>
         <div class="skills">
-            <input type="text" id="skills_ed" placeholder="Enter your skills" required>
+            <input type="text" id="skills_ed" placeholder="Enter your skills(press enter to select)" required>
         </div>
     </div>
     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ugrv2i0v.json"  background="transparent"  speed="1"  style="height: 100%;"  loop  autoplay></lottie-player>    
@@ -104,7 +109,7 @@
     <div class="bottom-buttons">
         <button class="back" type="button">Back</button>
         <div class="between"></div>
-        <button class="next" type="button" onclick="next()" >Next</button>
+        <button class="next" type="button">Next</button>
     </div>
     
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
