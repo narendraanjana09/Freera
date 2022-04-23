@@ -1,3 +1,5 @@
+const field_select=document.querySelector('#form-select');
+const bio_ed=document.querySelector('#bio_ed');
 const tagContainer = document.querySelector('.skills');
 const input = document.querySelector('.skills input');
 

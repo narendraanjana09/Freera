@@ -2,10 +2,30 @@
 
 const imgDiv = document.querySelector('.profile-pic-div');
 const img = document.querySelector('#photo');
+const name_ed = document.querySelector('#name_ed');
+const email_ed = document.querySelector('#email_ed');
+const address_ed = document.querySelector('#address_ed');
+const phone_ed = document.querySelector("#phone");
 const file = document.querySelector('#file');
 const uploadBtn = document.querySelector('#uploadBtn');
 
 //if user hover on img div 
+function checkUserAuth(){
+    firebase.auth().onAuthStateChanged(user=>{
+        if(user){
+            console.log("true");
+            img.setAttribute('src', user.photoURL);
+            name_ed.value=user.displayName;
+            email_ed.value=user.email;
+        }else{
+            console.log("false");
+        }
+    })
+}
+window.onload = (event) => {
+    console.log('page is fully loaded');
+  };
+checkUserAuth()
 
 imgDiv.addEventListener('mouseenter', function(){
     uploadBtn.style.display = "block";
@@ -57,8 +77,8 @@ function getIp(callback) {
       .then((resp) => callback(resp.country));
    }
 
-const phoneInputField = document.querySelector("#phone");
-const phoneInput = window.intlTelInput(phoneInputField, {
+
+const phoneInput = window.intlTelInput(phone_ed, {
     initialCountry: "in",
     geoIpLookup: getIp,
   utilsScript:

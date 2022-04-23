@@ -37,4 +37,30 @@ function onSignIn(profile) {
         email_tv.innerHTML=profile.email;
         profile_img.src = profile.photoURL;
 }
+function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+  }
+  
+  /* Set the width of the side navigation to 0 */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+function openGetHired(){
+    firebase.auth().onAuthStateChanged(user=>{
+        if(user){
+            window.location='getHired/getHired.html';
+        }else{
+            if(window.confirm("Login to Continue!")){
+                firebase.auth().signInWithPopup(provider).then(res =>{
+                    console.log(res.user)
+                    onSignIn(res.user)
+                    window.location='getHired/getHired.html';
+                }).catch(e =>{
+                    console.log(e)
+                })
+            }
+        }
+    })
+    
+}
 

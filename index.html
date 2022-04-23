@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id" content="1022282300672-2hefrbmuh0uvlher5cljp362mju3hfj9.apps.googleusercontent.com">
     <title>Freera</title>
+   
     <link rel = "icon" href = 
     "https://cdn-icons-png.flaticon.com/512/5240/5240673.png" 
             type = "image/x-icon">
@@ -23,6 +24,11 @@
 </head>
 <body>
     <div class="container1" >
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark" ></i></a>
+            <a href="#" class="nav-btn" ><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="#" class="nav-btn"  onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+        </div>
         <div class="navbar" data-aos="slide-down" >
             <img src="images/logo.png" class="logo">
             <nav>
@@ -33,12 +39,12 @@
                 
                 </ul>
             </nav>
-            <button class="logout" onclick="logout()">Logout</button>
+          
         <div class="login-view">
             <div class="login" id="signin-button">
                 Login
             </div>
-            <div class="person-detail" onclick="menuToggle();">
+            <div class="person-detail" onclick="openNav()">
                 <div class="detail">
                     <div class="image">
                     <img  class="profile" src="images/profile.jpg" alt="Avatar">
@@ -54,6 +60,7 @@
             </div>
         </div>
         </div>
+        
     
         <div class="row" data-aos="slide-up" >
             <div class="col-1">
@@ -76,6 +83,7 @@
                 <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_spikezpv.json"  background="transparent"  speed="1"  style="width: 600px; height: 500px;"  loop  autoplay></lottie-player>
             </div>        
         </div>
+       
     </div>
     <div class="container2" id="div2">
         <div class="title"  data-aos="slide-up" >
@@ -129,7 +137,7 @@
                     </div>
                 </div>
                 </div>
-                <button  type="button" onclick="window.location='getHired/getHired.html';">
+                <button  type="button" onclick="openGetHired()">
                     Get Started
                     <img src="images/arrow/right.png">
                 </button>
@@ -317,6 +325,7 @@
             console.log("logout succesfull")
             login_btn.style.display = "grid";
             user_detail.style.display = "none";
+            closeNav()
         })
        }
      </script>
