@@ -1,4 +1,4 @@
-var version="0.1.1";
+var version="0.1.2";
 console.log("version:"+version)
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
