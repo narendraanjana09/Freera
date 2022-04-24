@@ -1,4 +1,4 @@
-// const { uploadBytesResumable } = require("@firebase/storage");
+
 
 const pdf=document.querySelector('#pdf');
 const file_name_ed=document.querySelector('.file-name')
