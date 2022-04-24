@@ -1,4 +1,4 @@
-const { uploadBytesResumable } = require("@firebase/storage");
+// const { uploadBytesResumable } = require("@firebase/storage");
 
 const pdf=document.querySelector('#pdf');
 const file_name_ed=document.querySelector('.file-name')
@@ -125,7 +125,7 @@ function checkFirst(name,email,phoneNumber){
         return false;
     }
     return true;
-}
+  }
 function checkSecond(index,bio,tags){
     if(index==0){
         alert("select your field! ")
@@ -295,95 +295,3 @@ function showProgress(){
 function hideProgress(){
   document.getElementById("progress").style.display="none";
 }
-
-function uploadHomeImage() {
-  
-    const file = document.getElementById("inputGroupFile04").files[0];
-    if (document.getElementById("inputGroupFile04").value == "") {
-      alert("please select a file first!");
-      return;
-    }
-    if (file.name == "") {
-      alert("please select a file first!");
-      return;
-    }
-  
-    var currentdate = new Date();
-    var id =
-      "date_" +
-      currentdate.getDate() +
-      "_" +
-      (currentdate.getMonth() + 1) +
-      "_" +
-      currentdate.getFullYear() +
-      "_time_" +
-      currentdate.getHours() +
-      ":" +
-      currentdate.getMinutes() +
-      ":" +
-      currentdate.getSeconds();
-  
-    progress.style.display = "block";
-    const metadata = {
-      contentType: file.type,
-    };
-  
-    const uploadTask = homeImageStoRef.child(id + "").put(file, metadata);
-  
-    uploadTask.on(
-      firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-      (snapshot) => {
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("Upload is " + progress + "% done");
-        switch (snapshot.state) {
-          case firebase.storage.TaskState.PAUSED: // or 'paused'
-            console.log("Upload is paused");
-            break;
-          case firebase.storage.TaskState.RUNNING: // or 'running'
-            console.log("Upload is running");
-            break;
-        }
-      },
-      (error) => {
-        // A full list of error codes is available at
-        // https://firebase.google.com/docs/storage/web/handle-errors
-        progress.style.display = "none";
-        switch (error.code) {
-          case "storage/unauthorized":
-            alert("User doesn't have permission to access the object");
-            break;
-          case "storage/canceled":
-            alert("User canceled the upload");
-            break;
-  
-          // ...
-  
-          case "storage/unknown":
-            alert(" Unknown error occurred, inspect error.serverResponse");
-            break;
-        }
-      },
-      () => {
-        // Upload completed successfully, now we can get the download URL
-        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          document.getElementById("inputGroupFile04").value = "";
-          var des = document.getElementById("imageText").value;
-          homeImageItem.imageId = id;
-          homeImageItem.imageLink = downloadURL;
-          homeImageItem.imageDes = des;
-          document.getElementById("imageText").value = "";
-          progress.style.display = "none";
-  
-          homeImageRef.child(id).set(homeImageItem, (error) => {
-            if (error) {
-              alert("error");
-            } else {
-              alert("Data saved successfully");
-            }
-          });
-        });
-      }
-    );
-  }
-  
