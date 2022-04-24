@@ -140,7 +140,7 @@ function postProject(){
 }
 function  uploadFiles(projectData,index){
    
-    const file = projectData.files[index];
+    const file =pdf.files[index];
     const metadata = {
       contentType: file.type,
     };
