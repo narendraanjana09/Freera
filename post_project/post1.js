@@ -115,9 +115,9 @@ var projectData = {
   
 
 function postProject(){
-  //  var fuser=firebase.auth().currentUser;
+    var fuser=firebase.auth().currentUser;
     projectData.pid=Date.now();
-  //  projectData.uid=fuser.uid;
+    projectData.uid=fuser.uid;
     projectData.name=name_ed.value;
     projectData.description=desc_ed.value;
     projectData.category=selected;
