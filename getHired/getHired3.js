@@ -23,7 +23,8 @@ var userData = {
     bio: "",
     skills:[],
     resumeUrl:"",
-    links:[]
+    links:[],
+    joinDate:""
   };
 
 const next = document.querySelector(".next"),
@@ -56,6 +57,7 @@ next.addEventListener("click", ( )=>{
     userData.field=field;
     userData.skills=tags;
     userData.links=[link1_ed.value,link2_ed.value];
+    userData.joinDate=getTimeStamp()
 
     console.log(userData)
     if(counter==0){
@@ -207,19 +209,21 @@ function uploadProfilePhoto(userData){
 
 function getTimeStamp(){
   var currentdate = new Date();
-    var id =
-      "date_" +
+const options = {
+hour: 'numeric',
+minute: 'numeric',
+hour12: true
+};
+const time = new Intl.DateTimeFormat('en-US', options).format(currentdate)
+var id =
       currentdate.getDate() +
-      "_" +
+      "/" +
       (currentdate.getMonth() + 1) +
-      "_" +
+      "/" +
       currentdate.getFullYear() +
-      "_time_" +
-      currentdate.getHours() +
-      ":" +
-      currentdate.getMinutes() +
-      ":" +
-      currentdate.getSeconds();
+      " " +
+     time;
+
       return id;
 }
 function  uploadResume(userData){
@@ -282,7 +286,7 @@ function  uploadResume(userData){
           if (error) {
             alert("error");
           } else {
-            alert("Profile Creates Successfully!");
+            alert("Profile Created Successfully!");
             history.back();
           }
         });
