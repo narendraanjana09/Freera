@@ -271,6 +271,8 @@ function  uploadResume(userData){
       // Upload completed successfully, now we can get the download URL
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
         userData.resumeUrl=downloadURL;
+
+        updateFirebaseProfile(userData)
         firebase
         .database()
         .ref("users")
@@ -287,7 +289,17 @@ function  uploadResume(userData){
       });
     }
   );
-
+}
+function updateFirebaseProfile(userData){
+  var userNow = firebase.auth().currentUser;
+    userNow.updateProfile({
+    displayName: userData.name,
+    photoURL: userData.profileUrl
+  }).then(function() {
+   console.log("firebase profile updated");
+  }, function(error) {
+    console.log("firebase profile updated error "+error);
+  });
 }
 function showProgress(){
  document.getElementById("progress").style.display="grid";
