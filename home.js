@@ -1,5 +1,5 @@
-var version="0.1.4";
-console.log("version:"+version)
+var version="0";
+document.getElementById("version").innerHTML=version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
 var login_btn = document.querySelector('.login');
