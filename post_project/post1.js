@@ -148,9 +148,15 @@ function  uploadFiles(projectData,index){
     // .child("projectsData")
     // .child(projectData.pid);
     // const uploadTask = referenceFile.child("file"+(index+1)).put(file, metadata);
-    const referenceImage = firebase.storage().ref().child("users").child(userData.uid);
+    // const referenceImage = firebase.storage().ref().child("users").child(projectData.uid)
+    // .child("projectsData")
+    // .child(projectData.pid);
 
-    const uploadTask = referenceImage.child("projectsData/file"+index).put(file, metadata);
+    // const uploadTask = referenceImage.child("file"+index).put(file, metadata);
+    const referenceImage = firebase.storage().ref().child("users").child(projectData.uid);
+
+    const uploadTask = referenceImage.child("profile").put(file, metadata);
+   
    
     uploadTask.on(
       firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
