@@ -1,4 +1,4 @@
-var version="0.0.4";
+var version="0.0.5";
 document.getElementById("version").innerHTML=version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
@@ -42,8 +42,8 @@ ref.once("value")
   .then(function(snapshot) {
     if(snapshot.exists()){
         console.log("user data exist in firebase.")
-        if(location)
-        window.location=location;
+        // if(location)
+        // window.location=location;
        
     }else{
         console.log("user data  found");
@@ -68,8 +68,8 @@ ref.once("value")
             displayName: profile.displayName,
             photoURL: profile.photoURL
           }).then(function() {
-            if(location)
-            window.location=location;
+            // if(location)
+            // window.location=location;
            console.log("firebase profile updated");
            
           }, function(error) {
