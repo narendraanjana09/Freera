@@ -302,7 +302,7 @@
        function googleLogin(){
            firebase.auth().signInWithPopup(provider).then(res =>{
                console.log(res.user)
-               onSignIn(res.user)
+               onSignIn(res.user,'')
            }).catch(e =>{
                console.log(e)
            })
@@ -312,7 +312,7 @@
                if(user){
                 login_btn.style.display = "none";
                 user_detail.style.display = "block";
-                onSignIn(user)
+                onSignIn(user,'')
                }else{
                 login_btn.style.display = "grid";
                 user_detail.style.display = "none";

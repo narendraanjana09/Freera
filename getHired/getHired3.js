@@ -276,7 +276,7 @@ function  uploadResume(userData){
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
         userData.resumeUrl=downloadURL;
 
-        updateFirebaseProfile(userData)
+       
         firebase
         .database()
         .ref("users")
@@ -286,25 +286,25 @@ function  uploadResume(userData){
           if (error) {
             alert("error");
           } else {
+            var userNow = firebase.auth().currentUser;
+            userNow.updateProfile({
+            displayName: userData.name,
+            photoURL: userData.profileUrl
+          }).then(function() {
             alert("Profile Created Successfully!");
             history.back();
+           console.log("firebase profile updated");
+          }, function(error) {
+            console.log("firebase profile updated error "+error);
+          });
+            
           }
         });
       });
     }
   );
 }
-function updateFirebaseProfile(userData){
-  var userNow = firebase.auth().currentUser;
-    userNow.updateProfile({
-    displayName: userData.name,
-    photoURL: userData.profileUrl
-  }).then(function() {
-   console.log("firebase profile updated");
-  }, function(error) {
-    console.log("firebase profile updated error "+error);
-  });
-}
+
 function showProgress(){
  document.getElementById("progress").style.display="grid";
 }

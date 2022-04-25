@@ -1,4 +1,4 @@
-var version="0.1";
+var version="0.0.4";
 document.getElementById("version").innerHTML=version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
@@ -24,7 +24,7 @@ function goTOP(){
 function viewLeaderBoard(){
     location.href ='./leaderboard/leader.html';
 }
-function onSignIn(profile) {
+function onSignIn(profile,location) {
         console.log('ID: ' + profile.uid);
         console.log('Full Name: ' + profile.displayName);
         console.log('Image URL: ' + profile.photoURL);
@@ -32,15 +32,19 @@ function onSignIn(profile) {
         name_tv.innerHTML =profile.displayName;
         email_tv.innerHTML=profile.email;
         profile_img.src = profile.photoURL;
-        checkData(profile);
+        checkData(profile,location)
+      
 }
-function checkData(profile){
+function checkData(profile,location){
     
 var ref = firebase.database().ref("users/users").child(profile.uid);
 ref.once("value")
   .then(function(snapshot) {
     if(snapshot.exists()){
-       console.log("user data exist in firebase.")
+        console.log("user data exist in firebase.")
+        if(location)
+        window.location=location;
+       
     }else{
         console.log("user data  found");
         var userData = {
@@ -55,12 +59,23 @@ ref.once("value")
         .ref("users")
         .child("users")
         .child(profile.uid).set(userData, (error) => {
-          hideProgress()
           if (error) {
             alert("error");
+           
           } else {
-            alert("Profile Created Successfully!");
-            history.back();
+            var userNow = firebase.auth().currentUser;
+            userNow.updateProfile({
+            displayName: profile.displayName,
+            photoURL: profile.photoURL
+          }).then(function() {
+            if(location)
+            window.location=location;
+           console.log("firebase profile updated");
+           
+          }, function(error) {
+            console.log("firebase profile updated error "+error);
+          
+          });
           }
         });
     }
@@ -103,8 +118,8 @@ function openDevelopersPage(){
             if(window.confirm("Login to Continue!")){
                 firebase.auth().signInWithPopup(provider).then(res =>{
                     console.log(res.user)
-                    onSignIn(res.user)
-                    window.location='developers/home.html';
+                    onSignIn(res.user,'developers/home.html')
+                    
                 }).catch(e =>{
                     console.log(e)
                 })
@@ -120,8 +135,7 @@ function openPostProject(){
             if(window.confirm("Login to Continue!")){
                 firebase.auth().signInWithPopup(provider).then(res =>{
                     console.log(res.user)
-                    onSignIn(res.user)
-                    window.location='post_project/project.html';
+                    onSignIn(res.user,'post_project/project.html')
                 }).catch(e =>{
                     console.log(e)
                 })
@@ -137,8 +151,7 @@ function openGetHired(){
             if(window.confirm("Login to Continue!")){
                 firebase.auth().signInWithPopup(provider).then(res =>{
                     console.log(res.user)
-                    onSignIn(res.user)
-                    window.location='getHired/getHired.html';
+                    onSignIn(res.user,'getHired/getHired.html')
                 }).catch(e =>{
                     console.log(e)
                 })

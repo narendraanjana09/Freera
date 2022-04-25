@@ -92,6 +92,11 @@ input.focus();
 
 
 function filesSelected(){
+  if(pdf.files.length>3){
+    alert("max 3 files alowed!");
+    pdf.value=null;
+    return;
+  }
       file_name_ed.innerHTML=pdf.files.item(0).name;
       var children = "";
       for (var i = 0; i < pdf.files.length; ++i) {
@@ -125,7 +130,7 @@ function postProject(){
     var e = document.getElementById("budget");
     var budget = e.options[e.selectedIndex].text;
     projectData.budget=budget;
-    projectData.files=pdf.files;
+    projectData.files=[];
     projectData.postDate=getTimeStamp();
 
     console.log(projectData);
@@ -187,7 +192,6 @@ function  uploadFiles(projectData,index){
             break;
   
           // ...
-  
           case "storage/unknown":
             alert(" Unknown error occurred, inspect error.serverResponse");
             break;
@@ -197,7 +201,7 @@ function  uploadFiles(projectData,index){
         // Upload completed successfully, now we can get the download URL
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
           var link=downloadURL;
-          projectData.files[index]=downloadURL;
+          projectData.files.push(downloadURL);
           if(projectData.files.length==index+1){
             postProjectToFirebase(projectData);
           }else{
