@@ -1,4 +1,4 @@
-
+console.log("post project version 1");
 var web_btn = document.querySelector('.web_btn');
 var mobile_btn = document.querySelector('.mobile_btn');
 var selected="";
@@ -136,7 +136,7 @@ function postProject(){
     console.log(projectData);
     if(checkData(projectData)){
         showProgress()
-        if(projectData.files.length==0){
+        if(pdf.files.length==0){
             postProjectToFirebase(projectData);
         }else{
             uploadFiles(projectData,0)
@@ -149,17 +149,8 @@ function  uploadFiles(projectData,index){
     const metadata = {
       contentType: file.type,
     };
-    // const referenceFile = firebase.storage().ref().child("users").child(projectData.uid)
-    // .child("projectsData")
-    // .child(projectData.pid);
-    // const uploadTask = referenceFile.child("file"+(index+1)).put(file, metadata);
-    // const referenceImage = firebase.storage().ref().child("users").child(projectData.uid)
-    // .child("projectsData")
-    // .child(projectData.pid);
-
-    // const uploadTask = referenceImage.child("file"+index).put(file, metadata);
-    const referenceImage = firebase.storage().ref().child("users").child(projectData.uid)
-    .child("projectdata").child(projectData.pid);
+    const referenceImage = firebase.storage().ref().child("users")
+    .child(projectData.uid+"/projectdata/"+projectData.pid);
 
     const uploadTask = referenceImage.child("file"+index).put(file, metadata);
    
@@ -201,8 +192,8 @@ function  uploadFiles(projectData,index){
         // Upload completed successfully, now we can get the download URL
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
           var link=downloadURL;
-          projectData.files.push(downloadURL);
-          if(projectData.files.length==index+1){
+          projectData.files.push(link);
+          if(pdf.files.length==index+1){
             postProjectToFirebase(projectData);
           }else{
             uploadFiles(projectData,index+1)

@@ -1,5 +1,5 @@
-var version="0.0.5";
-document.getElementById("version").innerHTML=version;
+var version="1";
+document.getElementById("version").innerHTML="version:"+version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
 var login_btn = document.querySelector('.login');
@@ -42,8 +42,8 @@ ref.once("value")
   .then(function(snapshot) {
     if(snapshot.exists()){
         console.log("user data exist in firebase.")
-        // if(location)
-        // window.location=location;
+        if(location)
+        window.location=location;
        
     }else{
         console.log("user data  found");
@@ -68,8 +68,8 @@ ref.once("value")
             displayName: profile.displayName,
             photoURL: profile.photoURL
           }).then(function() {
-            // if(location)
-            // window.location=location;
+            if(location)
+            window.location=location;
            console.log("firebase profile updated");
            
           }, function(error) {
@@ -146,17 +146,37 @@ function openPostProject(){
 function openGetHired(){
     firebase.auth().onAuthStateChanged(user=>{
         if(user){
-            window.location='getHired/getHired.html';
+            checkDevUser(user,0);
         }else{
             if(window.confirm("Login to Continue!")){
                 firebase.auth().signInWithPopup(provider).then(res =>{
                     console.log(res.user)
-                    onSignIn(res.user,'getHired/getHired.html')
+                    checkDevUser(res.user,1)
                 }).catch(e =>{
                     console.log(e)
                 })
             }
         }
     })
+}
+function checkDevUser(user,value){
+    var devRef=firebase
+            .database()
+            .ref("users")
+            .child("developers")
+            .child(user.uid);
+            devRef.once("value")
+  .then(function(snapshot) {
+    if(snapshot.exists()){
+        // add projects page link
+       // onSignIn(user,'developers/getHired.html')
+    }else{
+        if(value==0){
+        window.location='getHired/getHired.html';
+    }else{
+        onSignIn(user,'getHired/getHired.html')
+    }
+    }
+});
 }
 

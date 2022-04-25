@@ -1,5 +1,5 @@
 
-
+console.log("getHired version 1");
 const pdf=document.querySelector('#pdf');
 const file_name_ed=document.querySelector('.file-name')
 const link1_ed=document.querySelector('#link1_ed');
