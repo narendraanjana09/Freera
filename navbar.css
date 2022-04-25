@@ -1,0 +1,164 @@
+
+.navbar{
+    width: 100%;
+	height: 80px;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    margin-left: 4%;
+    width: 150px;
+    cursor: pointer;
+
+}
+nav {
+
+    flex:1;
+    text-align: center;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-size:20px;
+    font-weight: 550;
+}
+nav ul li a:hover{
+    color: #F5A623;
+}
+.login-view{
+    width: fit-content;
+    height: fit-content;
+    margin-right: 30px; 
+    display: flex;
+}
+
+.login{
+    cursor: pointer;
+    color: #000;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: grid; /* grid */
+    place-items: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    transition: background-color 0.7s;
+}
+.login:hover{
+    color: white;
+    background-color: #F5A623;
+}
+
+.sidenav {
+    border-radius: 10px;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color:white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidenav a i {
+      margin-right: 30px;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: black;
+  }
+  .nav-btn{
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 10px;
+      padding: 10px;
+  }
+  .nav-btn:hover{
+      background-color: #E1EBFF;
+  }
+    
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 25px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+.person-detail{
+    cursor: pointer;
+    margin-left: 25px;
+	position: relative;
+}
+.detail{
+    display: flex;
+}
+.name-email{
+    margin-left: 10px;
+    display: block;
+    align-self: center;
+    margin: 0px 10px;
+}
+.name-email .name{
+    font-weight: 400;
+    font-size: 16px;
+}
+.name-email .email{
+    font-style: normal;
+    opacity: 70%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 12.5px;
+}
+.icon{
+    margin-left: 10px;
+    display: block;
+    align-self: center; 
+    color: #F5A623;
+}
+.image{
+    position: relative;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+overflow: hidden;
+cursor: pointer;
+   
+}
+.image img{
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}    

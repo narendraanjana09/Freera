@@ -1,4 +1,4 @@
-var version="0";
+var version="0.1";
 document.getElementById("version").innerHTML=version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
@@ -95,7 +95,23 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
 
-
+function openDevelopersPage(){
+    firebase.auth().onAuthStateChanged(user=>{
+        if(user){
+            window.location='developers/home.html';
+        }else{
+            if(window.confirm("Login to Continue!")){
+                firebase.auth().signInWithPopup(provider).then(res =>{
+                    console.log(res.user)
+                    onSignIn(res.user)
+                    window.location='developers/home.html';
+                }).catch(e =>{
+                    console.log(e)
+                })
+            }
+        }
+    })
+}
 function openPostProject(){
     firebase.auth().onAuthStateChanged(user=>{
         if(user){
