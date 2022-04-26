@@ -92,7 +92,7 @@ var email_tv = document.querySelector('.email');
       function googleLogin(){
           firebase.auth().signInWithPopup(provider).then(res =>{
               console.log(res.user)
-              onSignIn(res.user,'')
+              onSignIn(res.user)
           }).catch(e =>{
               console.log(e)
           })
@@ -102,7 +102,7 @@ var email_tv = document.querySelector('.email');
               if(user){
                login_btn.style.display = "none";
                user_detail.style.display = "block";
-               onSignIn(user,'')
+               onSignIn(user)
               }else{
                login_btn.style.display = "grid";
                user_detail.style.display = "none";
@@ -119,6 +119,15 @@ var email_tv = document.querySelector('.email');
            closeNav()
        })
       }
+      function onSignIn(profile) {
+    console.log('ID: ' + profile.uid);
+    console.log('Full Name: ' + profile.displayName);
+    console.log('Image URL: ' + profile.photoURL);
+    console.log('Email: ' + profile.email);
+    name_tv.innerHTML =profile.displayName;
+    email_tv.innerHTML=profile.email;
+    profile_img.src = profile.photoURL;
+}
     </script>
 <script type="text/javascript" src="home.js"></script>
    
