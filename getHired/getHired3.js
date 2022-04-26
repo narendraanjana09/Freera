@@ -12,6 +12,10 @@ function pdfSelected(){
       console.log('Selected file: ' + pdf.files.item(0).size);
       console.log('Selected file: ' + pdf.files.item(0).type);
 }
+var jobs={
+  stars:"",
+  jobs:"0"
+}
 var userData = {
     uid:"",
     name: "",
@@ -24,7 +28,8 @@ var userData = {
     skills:[],
     resumeUrl:"",
     links:[],
-    joinDate:""
+    joinDate:"",
+    job_data:jobs
   };
 
 const next = document.querySelector(".next"),

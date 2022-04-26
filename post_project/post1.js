@@ -71,6 +71,7 @@ function addTags() {
 input.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       e.target.value.split(',').forEach(tag => {
+        if(tag)
         tags.push(tag);  
       });
       

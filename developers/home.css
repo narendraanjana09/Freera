@@ -1,0 +1,178 @@
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+.headline{
+    width: 100%;
+    height: 8vh;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+}
+.data{
+    overflow-y: scroll;
+    height: 72vh;
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.data::-webkit-scrollbar {
+    width: 0.5rem; 
+    height: 0px; 
+  }
+.div-profile-data{
+    cursor: pointer;
+    border-radius: 10px;
+    width: fit-content;
+    margin-bottom: 30px;
+    margin-right: 40px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    height: fit-content;
+    display: block;
+    background-color: white;
+    padding:20px;
+    transition: transform 1s;
+}
+.div-profile-data:hover{
+        transform: scale(1.05);
+}
+
+.detail1{
+    display: flex;
+    padding-left: 20px;
+
+}
+.detail1 .image{
+    margin-right: 10px;
+    align-self: center;
+}
+.name-field .name{
+    color: #F5A623;
+    font-weight: 400;
+    font-size: 16px;
+}
+.name-field .field{
+    font-size: 13px;
+}
+.skills{
+    width: 250px;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-content: flex-start;
+}
+.chip{
+    color: black;
+    font-size: 13px;
+    font-style: normal;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 3px 10px;
+    background-color: #E9F5FD;
+    border-radius: 15px;
+}
+.jobs{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+.jobs span{
+    font-size: 16px;
+}
+
+
+.view-profile-div{
+    height: 100vh;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+    display: grid;
+    align-content: center;
+    z-index: 2;
+    transform: scale(0);
+    transition: transform 0.4s;
+}
+.bg-div{
+    height: 100vh;
+    width: 100vw;
+    cursor: pointer;
+    position: absolute;
+    background: rgba(233, 233, 233, 0.6);
+}
+.profile-bg{
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-left: 30vw;
+    width: 40vw;
+    z-index: 1;
+    display: block;
+    height: fit-content;
+}
+.top-data{
+    display: flex;
+    width: 100%;    
+    height: 15vh;
+}
+.top-data .detail1{
+    padding: 20px;
+    margin-left: 20px;
+    width: 90vw;
+    height: fit-content;
+}
+.top-data .detail1 .image{
+    width: 13vh;
+    height: 13vh;
+}
+.top-data .detail1 .name-field{
+    display: grid;
+    align-items: center;
+}
+.top-data .detail1 .name-field .name{
+    font-size: 1.00em;
+    font-weight: 500;
+}
+.top-data .detail1 .name-field .field{
+    font-size: 0.90em;
+    margin-top: -30px;
+}
+.top-data .jobs{
+    align-self: center;
+}
+.bio-div{
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 15px;
+}
+.last-data{
+    display: flex;
+    align-items: center;
+}
+.last-data .skills{
+    width: 25vw;
+    height: 20vh;
+}
+.last-data button{
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: white;
+    align-self: center;
+    margin-left: 10px;
+    transform: scale(0.9);
+    transition: transform 1s;
+}
+.last-data button:hover{
+    transform: scale(1);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}

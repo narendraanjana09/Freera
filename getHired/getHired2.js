@@ -35,6 +35,7 @@ function addTags() {
 input.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       e.target.value.split(',').forEach(tag => {
+        if(tag)
         tags.push(tag);  
       });
       
@@ -54,19 +55,5 @@ document.addEventListener('click', (e) => {
 
 input.focus();
 
-
-// var userData = {
-//     uid:"",
-//     name: "",
-//     email: "",
-//     address: "",
-//     number: "",
-//     profileUrl: "",
-//     field: "",
-//     bio: "",
-//     skills:[],
-//     resumeUrl:"",
-//     links:[]
-//   };
 
  
