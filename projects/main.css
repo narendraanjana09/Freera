@@ -1,0 +1,160 @@
+.select-div{
+    height: 15vh;
+    margin-left: 3%;
+    padding-top: 4%;
+    width: 30vw;
+}
+.data{
+    overflow-y: scroll;
+    height: 72vh;
+    padding-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.data::-webkit-scrollbar {
+    width: 0.5rem; 
+    height: 0px; 
+}
+.project-div{
+    cursor: pointer;
+    width: fit-content;
+    display: block;
+    margin-bottom: 30px;
+   
+    margin-right: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    transition: transform 0.4s;
+}
+.project-div:hover{
+ transform: scale(1.03);   
+}
+.project-div .title{
+    font-weight: 550;
+    max-width: 20vw;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.project-div .description{
+    width: 20vw;
+    font-size: 14px;
+    display: -webkit-box;
+max-height: 10vh;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+line-height: 1.625;
+}
+.skills{
+    width: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-content: flex-start;
+}
+.chip{
+    color: black;
+    font-size: 13px;
+    font-style: normal;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 3px 10px;
+    background-color: #E9F5FD;
+    border-radius: 15px;
+}
+.project-div .bottom-data{
+    width: 300px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+.project-div .bottom-data span{
+    margin-right: 30px;
+}
+.project-div .bottom-data .bids{
+    color: cadetblue;
+}
+.project-div .bottom-data .budget{
+    color:slategrey;
+}
+.project-div .bottom-data .date{
+    margin-top: 10px;
+    color: cornflowerblue;
+}
+.data-mobile-project{
+    display: none;
+}
+.view-project-div{
+    height: 100vh;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+    display: grid;
+    align-content: center;
+    z-index: 2;
+    transform: scale(0);
+    transition: transform 0.4s;
+}
+.bg-div{
+    height: 100vh;
+    width: 100vw;
+    cursor: pointer;
+    position: absolute;
+    background: rgba(233, 233, 233, 0.5);
+}
+.project-bg{
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-left: 30vw;
+    width: 40vw;
+    padding:10px;
+    padding-left: 20px;
+    z-index: 1;
+    display: block;
+    height: fit-content;
+}
+.project-bg .description{
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.project-bg .skills{
+    width: 30vw;
+}
+.project-bg .bottom-data{
+    font-size: 16px;
+    margin-top: 20px;   
+}
+.project-bg .bottom-data span{
+    margin-right: 20px;
+}
+.project-bg .bottom-data .view-bids-btn{
+    color: cadetblue;
+}
+.project-bg .bottom-data .view-bids-btn:hover{
+    color: #F5A623;
+}
+.project-bg button{
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: white;
+    float: right;
+    transform: scale(0.9);
+    transition: transform 1s;
+}
+.project-bg button:hover{
+    transform: scale(1);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}

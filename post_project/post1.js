@@ -230,7 +230,7 @@ function postProjectToFirebase(projectData){
             .child(projectData.pid)
             .set(projectType);
             alert("Project Successfully Published!");
-            history.back();
+            window.location='../projects/main.html';
           }
         });
          

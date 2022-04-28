@@ -17,17 +17,16 @@
             <a href="#" class="nav-btn" ><i class="fa-solid fa-user"></i>Profile</a>
             <a href="#" class="nav-btn"  onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
         </div>
-        <div class="view-profile-div">
-            
+        <div class="view-project-div">
             
         </div>
         <div class="navbar" data-aos="slide-down" >
             <img src="../images/logo.png" class="logo">
             <nav>
                 <ul>
-                    <li><a href="">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="">About</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
                 
                 </ul>
             </nav>
@@ -50,6 +49,19 @@
                     </div>        
                 </div>
             </div>
+        </div>
+        </div>
+        <div class="select-div">
+            <select class="form-select" onchange="typeChanged()"  id="field_select" aria-label="Default select example">
+                    <option value="Android_developer">Web Projects</option>
+                    <option value="iOS_developer">Mobile Projects</option>  
+           </select>
+        </div>
+        <div class="data data-mobile-project">
+                
+        </div>
+        <div class="data data-web-project">
+                
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -118,7 +130,7 @@ var email_tv = document.querySelector('.email');
     profile_img.src = profile.photoURL;
 }
     </script>
-<script type="text/javascript" src="home.js"></script>
+<script type="text/javascript" src="main.js"></script>
    
 </body>
 </html>
