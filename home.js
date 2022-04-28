@@ -7,6 +7,7 @@ var user_detail = document.querySelector('.person-detail');
 var profile_img = document.querySelector('.profile');
 var name_tv = document.querySelector('.name');
 var email_tv = document.querySelector('.email');
+const developerBtn=document.querySelector('.developerBtn');
 
 
 
@@ -151,7 +152,7 @@ function openGetHired(){
             if(window.confirm("Login to Continue!")){
                 firebase.auth().signInWithPopup(provider).then(res =>{
                     console.log(res.user)
-                    checkDevUser(res.user,1)
+                    checkDevUser(user,1)
                 }).catch(e =>{
                     console.log(e)
                 })
@@ -160,16 +161,13 @@ function openGetHired(){
     })
 }
 function checkDevUser(user,value){
-    var devRef=firebase
-            .database()
-            .ref("users")
-            .child("developers")
-            .child(user.uid);
-            devRef.once("value")
-  .then(function(snapshot) {
-    if(snapshot.exists()){
-        // add projects page link
-       // onSignIn(user,'developers/getHired.html')
+   
+    if(developerBtn.innerText=="View Projects"){
+        if(value==0){
+            window.location='projects/main.html';
+        }else{
+            onSignIn(user,'projects/main.html')
+        }
     }else{
         if(value==0){
         window.location='getHired/getHired.html';
@@ -177,7 +175,6 @@ function checkDevUser(user,value){
         onSignIn(user,'getHired/getHired.html')
     }
     }
-});
 }
 function checkDeveloperexist(user){
     var devRef=firebase
@@ -188,9 +185,9 @@ function checkDeveloperexist(user){
             devRef.once("value")
   .then(function(snapshot) {
     if(snapshot.exists()){
-        document.querySelector('.developerBtn').innerText="View Projects";
+        developerBtn.innerText="View Projects";
     }else{
-        document.querySelector('.developerBtn').innerText="Get Started";   
+        developerBtn.innerText="Get Started";   
     }
 });
 }
