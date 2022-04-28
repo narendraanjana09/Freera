@@ -12,9 +12,9 @@ function pdfSelected(){
       console.log('Selected file: ' + pdf.files.item(0).size);
       console.log('Selected file: ' + pdf.files.item(0).type);
 }
-var jobs={
-  stars:"",
-  jobs:"0"
+var jobs = {
+  stars:"⭐",
+  total:"0"
 }
 var userData = {
     uid:"",
@@ -29,7 +29,7 @@ var userData = {
     resumeUrl:"",
     links:[],
     joinDate:"",
-    job_data:jobs
+    jobs_data:jobs
   };
 
 const next = document.querySelector(".next"),
@@ -297,8 +297,8 @@ function  uploadResume(userData){
             photoURL: userData.profileUrl
           }).then(function() {
             alert("Profile Created Successfully!");
-            history.back();
-           console.log("firebase profile updated");
+            console.log("firebase profile updated");
+            window.location='../projects/main.html';
           }, function(error) {
             console.log("firebase profile updated error "+error);
           });

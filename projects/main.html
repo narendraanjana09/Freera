@@ -20,6 +20,27 @@
         <div class="view-project-div">
             
         </div>
+        <div class="place-bid-div">
+            <div class="bg-div"  onclick="closePlaceBidDiv()"></div>
+            <div class="place-bid-bg">
+                <div class="title">
+                    Place Bid
+                </div>
+                <div class="body">
+                    <label for="estimatedTime_ed">Estimated Time</label>
+                    <input type="text" class="form-control" id="estimatedTime_ed" aria-describedby="emailHelp" placeholder="15 days">
+
+                    <label for="estimatedCost_ed">Estimated Costs</label>
+                    <input type="text" class="form-control" id="estimatedCost_ed" aria-describedby="emailHelp" placeholder="₹ 1200">
+
+                    <label for="exampleFormControlTextarea1">Describe Your Approach</label>
+                    <textarea class="form-control" id="Approach_ed" rows="3"></textarea>
+
+                    <button type="button" class="btn btn-success" onclick="submitBid()">Submit</button>
+                    <button type="button" class="btn btn-warning" onclick="closePlaceBidDiv()">Cancel</button>
+                </div>
+            </div>            
+        </div>
         <div class="navbar" data-aos="slide-down" >
             <img src="../images/logo.png" class="logo">
             <nav>

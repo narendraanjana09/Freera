@@ -13,6 +13,7 @@ const uploadBtn = document.querySelector('#uploadBtn');
 function checkUserAuth(){
     firebase.auth().onAuthStateChanged(user=>{
         if(user){
+            checkDeveloperexist(user);
             console.log("true");
             img.setAttribute('src', user.photoURL);
             name_ed.value=user.displayName;
@@ -89,3 +90,20 @@ const phoneInput = window.intlTelInput(phone_ed, {
 //     const phoneNumber = phoneInput.getNumber();
 //     alert(phoneNumber);
 // }
+
+function checkDeveloperexist(user){
+    var devRef=firebase
+            .database()
+            .ref("users")
+            .child("developers")
+            .child(user.uid);
+            devRef.once("value")
+  .then(function(snapshot) {
+    if(snapshot.exists()){
+        window.location='../index.html';
+    }else{
+           
+    }
+});
+}
+

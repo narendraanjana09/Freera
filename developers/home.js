@@ -31,6 +31,9 @@ let users = [];
   .child("developers")
   .on("child_added", (data) => {
     var user = data.val();
+    if(user.uid==firebase.auth().currentUser.uid){
+      return;
+    }
     users.push(user);
     addData(user,users.length-1);
   });
@@ -55,7 +58,8 @@ let users = [];
       </div>
       <div class="jobs">
       ${user.jobs_data.stars} <span> ${user.jobs_data.total} jobs</span>
-      </div>    
+      </div>
+          
   </div>`;
     data_div.innerHTML+=layout;
   }

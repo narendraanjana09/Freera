@@ -1,4 +1,4 @@
-var version="1.0.3";
+var version="1.1";
 document.getElementById("version").innerHTML="v:"+version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
