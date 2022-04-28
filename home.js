@@ -1,5 +1,5 @@
-var version="1.0.1";
-document.getElementById("version").innerHTML="version:"+version;
+var version="1.0.3";
+document.getElementById("version").innerHTML="v:"+version;
 var div2 = document.getElementById("div2");
 var div3 = document.getElementById("div3");
 var login_btn = document.querySelector('.login');
@@ -176,6 +176,21 @@ function checkDevUser(user,value){
     }else{
         onSignIn(user,'getHired/getHired.html')
     }
+    }
+});
+}
+function checkDeveloperexist(user){
+    var devRef=firebase
+            .database()
+            .ref("users")
+            .child("developers")
+            .child(user.uid);
+            devRef.once("value")
+  .then(function(snapshot) {
+    if(snapshot.exists()){
+        document.querySelector('.developerBtn').innerText="View Projects";
+    }else{
+        document.querySelector('.developerBtn').innerText="Get Started";   
     }
 });
 }

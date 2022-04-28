@@ -139,7 +139,7 @@
                     </div>
                 </div>
                 </div>
-                <button  type="button" onclick="openGetHired()">
+                <button class="developerBtn" type="button" onclick="openGetHired()">
                     Get Started
                     <img src="images/arrow/right.png">
                 </button>
@@ -304,6 +304,7 @@
            firebase.auth().signInWithPopup(provider).then(res =>{
                console.log(res.user)
                onSignIn(res.user,'')
+               checkDeveloperexist(res.user);
            }).catch(e =>{
                console.log(e)
            })
@@ -314,6 +315,7 @@
                 login_btn.style.display = "none";
                 user_detail.style.display = "block";
                 onSignIn(user,'')
+                checkDeveloperexist(user);
                }else{
                 login_btn.style.display = "grid";
                 user_detail.style.display = "none";
